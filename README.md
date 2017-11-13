@@ -3,7 +3,7 @@ Logging.EventHubs
 
 Logging.EventHubs implements logger providers for .NET Core 2.0 applications. It intends to provide a simple way to write .NET Core application logs into EventHubs.
 
-# Usage
+# Getting Started
 * In ASP.NET Core 2.0 WebSites, add reference to nuget package:
 ```
 Install-Package LaCorridor.Logging.AzureEventHubs -Prerelease
