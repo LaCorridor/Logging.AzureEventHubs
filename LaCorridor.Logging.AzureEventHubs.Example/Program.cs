@@ -9,7 +9,8 @@ namespace LaCorridor.Logging.AzureEventHubs.Example
         static void Main(string[] args)
         {
             ILoggerFactory factory = new LoggerFactory();
-            factory.AddEventHubLogger("Endpoint=sb://saars-sb-eh-test02-ns.servicebus.windows.net/;SharedAccessKeyName=Send;SharedAccessKey=DvQHUtZPFuBh02GmBbmq29hh9Cce452XX8BazuhTPsQ=;EntityPath=saars-sb-eh-test02");
+            // Replace the argument with your own event hub conneciton string.
+            factory.AddEventHub("Your Eventhub String");
             factory.AddConsole(LogLevel.Warning);
 
             ILogger logger = factory.CreateLogger<Program>();

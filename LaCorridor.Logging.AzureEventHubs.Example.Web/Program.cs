@@ -16,7 +16,7 @@ namespace LaCorridor.Logging.AzureEventHubs.Example.Web
                 .ConfigureLogging(builder =>
                 {
                     builder.AddEventHub(
-                        "Endpoint=sb://saars-sb-eh-test02-ns.servicebus.windows.net/;SharedAccessKeyName=Send;SharedAccessKey=DvQHUtZPFuBh02GmBbmq29hh9Cce452XX8BazuhTPsQ=;EntityPath=saars-sb-eh-test02",
+                        "You Eventhub Connection String",
                         LogLevel.Debug);
                 })
                 .UseStartup<Startup>()
