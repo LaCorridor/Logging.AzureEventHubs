@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaCorridor.Logging.AzureEve
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaCorridor.Logging.AzureEventHubs.Example", "LaCorridor.Logging.AzureEventHubs.Example\LaCorridor.Logging.AzureEventHubs.Example.csproj", "{9E2FB34A-4C39-482F-A3EA-A21BADAF4951}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaCorridor.Logging.AzureEventHubs.Example.Web", "LaCorridor.Logging.AzureEventHubs.Example.Web\LaCorridor.Logging.AzureEventHubs.Example.Web.csproj", "{2CC4F748-749C-4E21-945F-3E213C83DD3C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaCorridor.Logging.AzureEventHubs.Example.Web", "LaCorridor.Logging.AzureEventHubs.Example.Web\LaCorridor.Logging.AzureEventHubs.Example.Web.csproj", "{2CC4F748-749C-4E21-945F-3E213C83DD3C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
