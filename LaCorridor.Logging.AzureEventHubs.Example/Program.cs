@@ -11,11 +11,14 @@ namespace LaCorridor.Logging.AzureEventHubs.Example
             ILoggerFactory factory = new LoggerFactory();
             // Replace the argument with your own event hub conneciton string.
             factory.AddEventHub("Your Eventhub String");
-            factory.AddConsole(LogLevel.Warning);
+            factory.AddConsole(LogLevel.Warning, true);
 
             ILogger logger = factory.CreateLogger<Program>();
-
-            logger.LogWarning("This is a warning. Expect to show up in console and event hub at the same time");
+            using (var scope = logger.BeginScope("Hello_Scope1"))
+            using (var scope2 = logger.BeginScope("Hello_Scope2"))
+            {
+                logger.LogWarning("This is a warning. Expect to show up in console and event hub at the same time");
+            }
 
             // Need sometime for the data to populate through the pipeline.
             Thread.Sleep(10000);

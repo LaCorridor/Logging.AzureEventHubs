@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using LaCorridor.Logging.AzureEventHubs.Example.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -8,9 +9,12 @@ namespace LaCorridor.Logging.AzureEventHubs.Example.Web.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger _logger;
+        private IDisposable _scope;
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
+            // TODO: Deal with scope leaking.
+            _scope = logger.BeginScope("Hello");
         }
 
         public IActionResult Index()

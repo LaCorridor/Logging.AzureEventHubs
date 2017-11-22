@@ -18,6 +18,10 @@ namespace LaCorridor.Logging.AzureEventHubs.Example.Web
                     builder.AddEventHub(
                         "You Eventhub Connection String",
                         LogLevel.Debug);
+                    builder.AddConsole(options =>
+                    {
+                        options.IncludeScopes = true;
+                    });
                 })
                 .UseStartup<Startup>()
                 .Build();

@@ -20,12 +20,16 @@ namespace LaCorridor.Logging.AzureEventHubs
         [JsonProperty("category")]
         public string Category { get; set; }
 
-        public LogEntry(LogLevel logLevel, EventId eventId, string message, string category)
+        [JsonProperty("scope", NullValueHandling = NullValueHandling.Ignore)]
+        public string Scope { get; set; }
+
+        public LogEntry(LogLevel logLevel, EventId eventId, string message, string category, string scope)
         {
             LogLevel = logLevel;
             EventId = eventId;
             Message = message;
             Category = category;
+            Scope = scope;
         }
     }
 }

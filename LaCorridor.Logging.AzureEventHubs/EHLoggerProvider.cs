@@ -15,7 +15,14 @@ namespace LaCorridor.Logging.AzureEventHubs
         {
             _logLevel = logLevel;
             Arguments.IsNotNullOrEmpty(eventHubConnectionString, nameof(eventHubConnectionString));
-            _client = EventHubClient.CreateFromConnectionString(eventHubConnectionString);
+            try
+            {
+                _client = EventHubClient.CreateFromConnectionString(eventHubConnectionString);
+            }
+            catch
+            {
+                _client = null;
+            }
         }
 
         public ILogger CreateLogger(string categoryName)
@@ -30,7 +37,7 @@ namespace LaCorridor.Logging.AzureEventHubs
 
         public void Dispose()
         {
-            _client.Close();
+            _client?.Close();
         }
     }
 }
