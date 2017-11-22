@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Linq;
+using System.Text;
 
 namespace LaCorridor.Logging.AzureEventHubs
 {
@@ -26,9 +27,22 @@ namespace LaCorridor.Logging.AzureEventHubs
                 {
                     return stringState;
                 }
-                else if (state is IDictionary<string, object> dict)
+                else if (state is IEnumerable<KeyValuePair<string, object>> list)
                 {
-                    return JsonConvert.SerializeObject(dict, Formatting.None);
+                    StringBuilder builder = new StringBuilder();
+                    if (list.Any())
+                    {
+                        builder.Append("[");
+
+                        foreach (KeyValuePair<string, object> pair in list)
+                        {
+                            builder.Append($@"{{""{pair.Key}"":""{pair.Value}""}},");
+                        }
+
+                        string result = builder.ToString();
+                        result = result.Substring(0, result.Length - 1) + ']';
+                        return result;
+                    }
                 }
             }
             catch
