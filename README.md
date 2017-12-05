@@ -4,13 +4,13 @@ Logging.EventHubs
 Logging.EventHubs implements logger providers for .NET Core 2.0 applications. It intends to provide a simple way to write .NET Core application logs into EventHubs.
 
 # Getting Started
-## Install the pcakge
-* Install the Nuget Package by .NET CLI:
+## Install the package
+* Install the NuGet Package by .NET CLI:
 ```
 dotnet add package LaCorridor.Logging.AzureEventHubs
 ```
 Or
-* Install the Nuget Package by Package Manager:
+* Install the NuGet Package by Package Manager:
 ```
 Install-Package LaCorridor.Logging.AzureEventHubs
 ```
@@ -93,6 +93,41 @@ public class Runner
     }
 }
 ```
+
+## Use configuration file
+Providing connection string through configuration file is supported. Take .NET Core 2.0 ASP.NET Website as an example, Program.cs:
+```csharp
+public static IWebHost BuildWebHost(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+        .ConfigureLogging((hostContext, builder) =>
+        {
+            builder.AddEventHub(hostContext.Configuration);
+        })
+        .UseStartup<Startup>()
+        .Build();
+```
+Example of appsettings.json:
+```json
+{
+  "Logging": {
+    "IncludeScopes": true,
+    "LogLevel": {
+      "Default": "Debug"
+    },
+    "EventHubs": {
+      "ConnectionString": "EventHubs connection string",
+      "LogLevel": "Error"
+    }
+  }
+}
+
+```
+**Details for settings:**
+
+| Name | Type | Required | Value | Description |
+| -----|------|:--------:|-------|-------------|
+|ConnectionString| String | yes | EventHubs Connection String |EventHubs connection you can get from the Azure portal or the [EventHub Viewer]("https://www.microsoft.com/en-us/store/p/eventhub-viewer/9nblggh4wnmd"). |
+|LogLevel| Enum |   no | One of the following: `Trace` \| `Debug` \| `Information` \| `Warning` \| `Error` \| `Critical` \| `None` | Minimal logging level. In those values, `Trace` provides most chatty logs while `None` provides no logs. |
 
 ## Consumes the logger
 

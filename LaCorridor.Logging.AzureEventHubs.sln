@@ -1,13 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2006
+VisualStudioVersion = 15.0.27004.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaCorridor.Logging.AzureEventHubs", "LaCorridor.Logging.AzureEventHubs\LaCorridor.Logging.AzureEventHubs.csproj", "{50C0AE2A-4E80-41E7-B8A5-89FC7B7D121D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaCorridor.Logging.AzureEventHubs.Example", "LaCorridor.Logging.AzureEventHubs.Example\LaCorridor.Logging.AzureEventHubs.Example.csproj", "{9E2FB34A-4C39-482F-A3EA-A21BADAF4951}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaCorridor.Logging.AzureEventHubs.Example.Web", "LaCorridor.Logging.AzureEventHubs.Example.Web\LaCorridor.Logging.AzureEventHubs.Example.Web.csproj", "{2CC4F748-749C-4E21-945F-3E213C83DD3C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{5371EEE6-DC00-4D77-9F16-10ABAD244E9B}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
