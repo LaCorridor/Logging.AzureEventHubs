@@ -13,11 +13,9 @@ namespace LaCorridor.Logging.AzureEventHubs.Example.Web
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .ConfigureLogging(builder =>
+                .ConfigureLogging((hostContext, builder) =>
                 {
-                    builder.AddEventHub(
-                        "You Eventhub Connection String",
-                        LogLevel.Debug);
+                    builder.AddEventHub(hostContext.Configuration);
                     builder.AddConsole(options =>
                     {
                         options.IncludeScopes = true;
